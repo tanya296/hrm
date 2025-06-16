@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>HR Management System</title>
   <link rel="stylesheet" href="index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Ovo&family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
   <header class="navbar">
-    <img src="logo.png">
+    <img class="logo" src="logo.png" alt="Logo">
     <nav>
       <ul class="nav-links">
         <li><a href="#">Why us</a></li>
@@ -29,4 +30,136 @@
       <p>Streamline your HR operations with our advanced HRM system, offering features like employee tracking, payroll, leave management, and performance reviews — all in one place.</p>
       <a href="#" class="demo-btn">Book a demo</a>
     </div>
+
+    <div class="right-image">
+      <img id="spinny-img" src="wheelfinal.png" alt="Spinning Wheel">
+    </div>
   </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2>One Platform. Total Team Control!</h2>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <img src="features/module1.jpeg" alt="Smart Dashboard">
+        <h3>Module 1</h3>
+        <p>Smart Dashboard</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="features/module2.jpeg" alt="Leave & Attendance">
+        <h3>Module 2</h3>
+        <p>Leave & Attendance Management</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="features/module3.jpeg" alt="Project & Time Tracking">
+        <h3>Module 3</h3>
+        <p>Project & Time Tracking</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="features/module4.jpeg" alt="HR Letters">
+        <h3>Module 4</h3>
+        <p>HR Letters & Documents</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="features/module5.jpeg" alt="Self Service">
+        <h3>Module 5</h3>
+        <p>Employee Self-Service Portal</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="features/module6.jpeg" alt="Feed & Communication">
+        <h3>Module 6</h3>
+        <p>Company Feed & Communication</p>
+      </div>
+
+    </div>
+  </section>
+  <div class="faq-top-bar">
+  <h2>FAQs</h2>
+  </div>
+  <section class="faq-section">
+
+  <div class="faq-grid">
+
+    <div class="faq-card">
+      <div class="faq-head">
+        <span class="faq-icon">↗</span>
+        <h3>Is the system customizable for different company policies?</h3>
+      </div>
+      <p>
+        Absolutely. You can configure leave types, shift schedules, review criteria, and more to match your organization’s unique policies.
+      </p>
+    </div>
+
+    <div class="faq-card">
+      <div class="faq-head">
+        <span class="faq-icon">↗</span>
+        <h3>Is it secure to store employee data on this platform?</h3>
+      </div>
+      <p>
+        We use top-grade encryption and follow best practices in data protection to ensure your employee data stays safe and private.
+      </p>
+    </div>
+
+    <div class="faq-card">
+      <div class="faq-head">
+        <span class="faq-icon">↗</span>
+        <h3>Is training required to use this HRM system?</h3>
+      </div>
+      <p>
+        Not at all! The interface is intuitive and user-friendly. However, we provide onboarding support and tutorials if needed.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+  
+  <!-- Modal for Enlarged Image -->
+  <div id="image-modal" class="modal">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const img = document.getElementById("spinny-img");
+      window.addEventListener("scroll", () => {
+        if (img) {
+          const rotateValue = window.scrollY / 5;
+          img.style.transform = `rotate(${rotateValue}deg)`;
+        }
+      });
+
+      // Modal logic
+      const modal = document.getElementById("image-modal");
+      const modalImg = document.getElementById("modal-img");
+      const closeBtn = document.querySelector(".close-btn");
+
+      document.querySelectorAll(".feature-card img").forEach(img => {
+        img.addEventListener("click", () => {
+          modal.style.display = "flex";
+          modalImg.src = img.src;
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
